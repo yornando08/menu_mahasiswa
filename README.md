@@ -1,3 +1,2 @@
 # menu_mahasiswa
-Programing Java
- | Menu Daftar Mahasiswa
+Programing Java | Menu Daftar Mahasiswa
