@@ -17,7 +17,7 @@ public class UAS_NO1 { //Kalian bisa ganti sesuai nama Class kalian
 		System.out.println("================================");
 		System.out.println("SEKOLAH TINGGI DESAIN INTERSTUDI");
 		System.out.println("JURUSAN	: DESAIN MULTIMEDIA");
-		System.out.println("JURUSAN	: SELASA / 08.00 - 10.30");
+		System.out.println("WAKTU	: SELASA / 08.00 - 10.30");
 		System.out.println("================================");
 		System.out.println(" ");
 		System.out.println("[1] LIST NAMA MAHASISWA & NIM");
