@@ -1,0 +1,107 @@
+package DominikusYornando; //Kalian bisa ganti sesuai nama Package kalian
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class UAS_NO1 { //Kalian bisa ganti sesuai nama Class kalian
+	
+	static ArrayList listSiswa = new ArrayList();
+	static boolean isRunning = true;
+	static InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+	static BufferedReader input = new BufferedReader(inputStreamReader);
+	
+	static void showMenu() throws IOException{
+		System.out.println(" ");
+		System.out.println("================================");
+		System.out.println("SEKOLAH TINGGI DESAIN INTERSTUDI");
+		System.out.println("JURUSAN	: DESAIN MULTIMEDIA");
+		System.out.println("JURUSAN	: SELASA / 08.00 - 10.30");
+		System.out.println("================================");
+		System.out.println(" ");
+		System.out.println("[1] LIST NAMA MAHASISWA & NIM");
+		System.out.println("[2] INSERT NAMA MAHASISWA & NIM");
+		System.out.println("[3] EDIT NAMA MAHASISWA & NIM");
+		System.out.println("[4] HAPUS NAMA MAHASISWA & NIM");
+		System.out.println("[5] EXIT");
+		System.out.println(" ");
+		System.out.print("PILIH MENU : ");
+		int selectedMenu = Integer.valueOf(input.readLine());
+		
+		switch(selectedMenu) {
+		case 1:
+			showAllSiswa();
+			break;
+		case 2:
+			insertSiswa();
+			break;
+		case 3:
+			editSiswa();
+			break;
+		case 4:
+			deleteSiswa();
+			break;
+		case 5:
+			System.exit(0);
+			break;
+		default:
+			System.out.println("Pilihan salah!");
+		}
+		
+	}
+		
+		static void showAllSiswa() {
+			if(listSiswa.isEmpty()) {
+				System.out.println("Belum ada data mahasiswa");
+			} else {
+				//Tampilan Data Siswa Desain Multimedia 
+				for (int i = 0; i < listSiswa.size(); i++) {
+					System.out.println(String.format("[%d] %s", i, listSiswa.get(i)));
+					
+				}
+			}
+		}
+		
+		static void insertSiswa() throws IOException {
+			System.out.print("Nama	: ");
+			String namaSiswa = input.readLine();
+			System.out.print("NIM	: ");
+			String nimSiswa = input.readLine();
+			listSiswa.add(namaSiswa + " | " + nimSiswa);
+		}
+		
+		static void editSiswa() throws IOException{
+			showAllSiswa();
+			System.out.print("Pilih Nomor Data Mahasiswa : ");
+			int indexSiswa = Integer.valueOf(input.readLine());
+			
+			System.out.print("Nama	: ");
+			String namaBaru = input.readLine();
+			System.out.print("NIM	: ");
+			String nimBaru = input.readLine();
+			
+			String dataBaru = (namaBaru + " | " + nimBaru);
+			
+			//Ubah Data Mahasiswa Desain Multimedia
+			listSiswa.set(indexSiswa, dataBaru);	
+		}
+		
+		static void deleteSiswa() throws IOException{
+			showAllSiswa();
+			System.out.print("Pilih Nomor Data : ");
+			int indexSiswa = Integer.valueOf(input.readLine());
+			
+			//Hapus Data Mahasiswa Desain Multimedia
+			listSiswa.remove(indexSiswa);
+		}
+		
+		public static void main(String[] args) throws IOException{
+			
+			do {
+				showMenu();
+			} while (isRunning);
+			
+		}
+		
+}
